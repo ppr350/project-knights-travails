@@ -1,3 +1,5 @@
+import { forEach } from "lodash";
+
 class createBoard {
     constructor() {
         
@@ -22,9 +24,51 @@ const boardAdjacencyList = {
     '4': [{'neighbour': '3', 'weight': 'left'}, {'neighbour': '11', 'weight': 'down'}, {'neighbour': '5', 'weight': 'right'}],
     '5': [{'neighbour': '4', 'weight': 'left'}, {'neighbour': '12', 'weight': 'down'}, {'neighbour': '6', 'weight': 'right'}],
     '6': [{'neighbour': '5', 'weight': 'left'}, {'neighbour': '13', 'weight': 'down'},                                      ],
-    
 }
 
-console.log(boardLayOut)
-export { createBoard };
+// console.log(boardLayOut)
+// console.log(boardAdjacencyList)
 
+class legalMove {
+    constructor(sourceVertex) {
+        
+    }
+}
+
+
+class graph {
+    constructor(adjacencyList) {
+        this.adjacencyList = adjacencyList
+    }
+    addVertex(vertex) {
+        if (!this.adjacencyList[vertex]) {
+            this.adjacencyList[vertex] = []
+        }
+    }
+    addEdge(boardObject) {
+        for (let source in boardObject) {
+            console.log(source)
+            console.log(boardObject[source])
+            const [ ...destinations ] = boardObject[source]
+            console.log(...destinations)
+            // for (let dest in [...destinations]) {
+            //     console.log(dest)
+            // }
+            // if (!this.adjacencyList[source]) {
+            //     this.addVertex(source)
+            // }
+            // if (!this.adjacencyList[boardObject[source]]) {
+            //     this.addVertex(dest)
+            // }
+        }
+        // console.log(this.adjacencyList)
+
+        // this.adjacencyList[source] = 
+    }
+}
+
+const newBoard = new graph(boardAdjacencyList)
+// newBoard.addEdge(boardAdjacencyList)
+console.log(newBoard)
+
+export { createBoard, graph };
